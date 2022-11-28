@@ -1,12 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import { getConection } from '../database.js'
-import {
-  decodeBase64,
-  encodeBase64,
-  compileSCSS,
-  writeDB,
-  getCSS,
-} from '../utils/helper.util.js'
+import { decodeBase64, writeDB, getCSS } from '../utils/helper.util.js'
 
 export const getTemplates = (req, res) => {
   const templates = getConection().data.templates
@@ -15,9 +9,17 @@ export const getTemplates = (req, res) => {
 }
 
 export const createTemplate = async (req, res) => {
+  const db = getConection()
   const scss = decodeBase64(req.body.scss)
 
-  let css = await getCSS(scss)
+  const stylesheets = db.data.stylesheets.reduce((acc, curr)=> {
+    if(req.body.stylesheets.includes(curr.id) ){
+      acc += decodeBase64(curr.code)
+    } 
+    return acc
+  },'')
+
+  let css = await getCSS(stylesheets + scss)
   if (!css.successfullyCompiled) {
     res.status(400).send({ message: css.error })
     return
@@ -40,10 +42,9 @@ export const createTemplate = async (req, res) => {
         code: req.body.js,
       },
     ],
+    stylesheets: req.body.stylesheets,
     tags: req.body.tags,
   }
-
-  const db = getConection()
 
   db.data.templates.push(newTemplate)
 
@@ -55,11 +56,17 @@ export const updateTemplate = async (req, res) => {
   const templateFound = db.data.templates.find(
     template => template.id === req.params.id
   )
+  const stylesheets = db.data.stylesheets.reduce((acc, curr)=> {
+    if(req.body.stylesheets.includes(curr.id) ){
+      acc += decodeBase64(curr.code)
+    } 
+    return acc
+  },'')
+  
   if (!templateFound) return res.sendStatus(404)
-
   const scss = decodeBase64(req.body.scss)
-
-  let css = await getCSS(scss)
+  
+  let css = await getCSS(stylesheets + scss)
   if (!css.successfullyCompiled) {
     res.status(400).send({ message: css.error })
     return
@@ -82,7 +89,7 @@ export const updateTemplate = async (req, res) => {
   ]
 
   templateFound.languages = languages
-
+  templateFound.stylesheets = req.body.stylesheets
   templateFound.tags = req.body.tags
 
   db.data.templates.map(template =>

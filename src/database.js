@@ -13,7 +13,7 @@ export const createConection = async () => {
 
   await db.read()
 
-  db.data ||= { templates: [] }
+  db.data ||= { templates: [], stylesheets: [] }
 
   await db.write()
 }

@@ -19,30 +19,41 @@
       ],
       "tags": [
         "progress bar",
-        "blue",
-        "test"
+        "blue"
       ]
     },
     {
-      "id": "d0db17e0-c4ad-4db3-a7a8-1731f957238d",
+      "id": "17d42871-5769-41ba-9f2f-ce9f8df839dd",
       "languages": [
         {
           "name": "html",
-          "code": "SGVsbG8gd29ybGQ="
+          "code": "TmV3IFRlbXBsYXRl"
         },
         {
           "name": "scss",
-          "code": "Ym9keXsgY29sb3I6IGJsdWUgfQ==",
-          "compiled": "Ym9keSB7CiAgY29sb3I6IGJsdWU7IH0K"
+          "code": "Ym9keXsgYmFja2dyb3VuZDogIzAwMDsgY29sb3I6ICNmZmY7IGZvbnQtc2l6ZTogNXJlbTsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IGFsaWduLWl0ZW1zOiBjZW50ZXI7fQ==",
+          "compiled": "Ym9keSB7CiAgYmFja2dyb3VuZDogIzAwMDsKICBjb2xvcjogI2ZmZjsKICBmb250LXNpemU6IDVyZW07CiAgZGlzcGxheTogZmxleDsKICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICBhbGlnbi1pdGVtczogY2VudGVyOyB9Cg=="
         },
         {
           "name": "js",
-          "code": "Y29uc29sZS5sb2coJ2hlbGxvIHdvcmxkJyk="
+          "code": "Ly8="
         }
       ],
       "tags": [
-        "test template"
+        "black"
       ]
+    }
+  ],
+  "stylesheets": [
+    {
+      "id": "ecfbf1fa-32ac-459e-9ac4-e2d6a0f5ecb0",
+      "code": "JHByaW1hcnktY29sb3I6ICNjYjE0MzI7CiR0ZXh0LWNvbG9yIDogI2Q3ZmM5YzsKCmJvZHl7CiAgZGlzcGxheTogZmxleDsKICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICBhbGlnbi1pdGVtczogY2VudGVyOwogIGZvbnQtc2l6ZTogNXJlbTsKfQ==",
+      "name": "New Stylesheet"
+    },
+    {
+      "id": "c753db16-fd96-4ed2-bed8-f8dabdbe088c",
+      "code": "Ym9keXsgYmFja2dyb3VuZDogcHVycGxlOyBjb2xvcjogI2ZmZjsgZm9udC1zaXplOiA1cmVtOyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgYWxpZ24taXRlbXM6IGNlbnRlcjt9",
+      "name": "Mixins Test"
     }
   ]
 }
